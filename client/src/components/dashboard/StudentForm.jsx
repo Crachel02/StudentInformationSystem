@@ -41,6 +41,10 @@ function StudentForm({
     let { name, value } = e.target;
 
     if (name === "firstname" || name === "middlename" || name === "lastname") {
+      // Allow letters and spaces only
+      value = value.replace(/[^A-Za-z\s]/g, "");
+
+      // Capitalize each word
       value = value
         .toLowerCase()
         .replace(/\b\w/g, (char) => char.toUpperCase());
